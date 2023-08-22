@@ -27,11 +27,11 @@ function ResetPasswordPage() {
         token = router.query.token;
     }
 
-    useEffect(() => {
-        if (!token) {
-            return router.push('/login')
-        }
-    }, [token])
+    // useEffect(() => {
+    //     if (!token) {
+    //         return router.push('/login')
+    //     }
+    // }, [token])
 
     useEffect(() => {
         async function checkTokenExpiration() {
