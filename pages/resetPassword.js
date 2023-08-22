@@ -21,7 +21,17 @@ function ResetPasswordPage() {
 
     const [getDecodeToken, setGetDecodeToken] = useState('');
 
-    const { token } = router.query;
+    let token;
+
+    if (router.query) {
+        token = router.query.token;
+    }
+
+    useEffect(() => {
+        if (!token) {
+            return router.push('/login')
+        }
+    }, [token])
 
     useEffect(() => {
         async function checkTokenExpiration() {
