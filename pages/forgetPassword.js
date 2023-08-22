@@ -35,6 +35,8 @@ function forgetPasswordPage() {
 
     const [busy, setBusy] = useState(false);
 
+    const [isEmailValid, setIsEmailValid] = useState(false);
+
     const [checkIsEmailShow, setCheckIsEmailShow] = useState(false);
 
     // useFormik
@@ -52,6 +54,7 @@ function forgetPasswordPage() {
 
             if (!userExists) {
                 setBusy(false);
+                setIsEmailValid(true)
                 return toast.error("!!Email Id not found, Please try again :(");
             }
 
@@ -60,7 +63,7 @@ function forgetPasswordPage() {
                     return new Promise(async (resolve, reject) => {
                         try {
                             const emailSend = setTimeout(async () => {
-                                const response = await axios.post('/api/send-forget-email', {
+                                const response = await axios.post('https://wishbin-store.vercel.app/api/send-forget-email', {
                                     userData: userExists
                                 });
 
@@ -148,11 +151,18 @@ function forgetPasswordPage() {
                                                     checkIsEmailShow === false &&
                                                     <div className='fields h-max w-full mb-[20px] ' style={{ transition: '1s cubic-bezier(0.46, 0.03, 0.52, 0.96)' }}>
                                                         <label className='text-sm font-bold mb-[0.4rem] block text-black'>Email address</label>
-                                                        <input type='email' onChange={handleChange} name='email' onBlur={handleBlur} value={values.email} className={`w-full h-[55px] p-[8px_10px] rounded-[10px] border-[1px] text-black ${errors.email && touched.email ? 'border-[#ea5455]' : 'border-[lightgrey]'} bg-transparent focus:border-black`} placeholder='Enter your email' />
+                                                        {/* focus:border-black */}
+                                                        <input type='email' onChange={handleChange} name='email' onBlur={handleBlur} value={values.email} className={`w-full h-[55px] p-[8px_10px] rounded-[10px] border-[1px] text-black ${isEmailValid === true || errors.email && touched.email ? 'border-[#ea5455]' : 'border-[lightgrey]'} bg-transparent`} placeholder='Enter your email' />
                                                         {/* error */}
                                                         {
                                                             errors.email && touched.email ?
                                                                 <p className='text-[12px] text-[#ea5455] flex'>{errors.email}</p>
+                                                                : null
+                                                        }
+
+                                                        {
+                                                            isEmailValid === true ?
+                                                                <p className='text-[12px] text-[#ea5455] flex'>!!Email Id is not found. Please enter valid email Id.</p>
                                                                 : null
                                                         }
                                                     </div>

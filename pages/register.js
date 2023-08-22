@@ -110,7 +110,7 @@ function RegisterPage() {
                     return new Promise(async (resolve, reject) => {
                         try {
                             const checkoutCart = setTimeout(async () => {
-                                const response = await axios.post('/api/welcome-email', {
+                                const response = await axios.post('https://wishbin-store.vercel.app/api/welcome-email', {
                                     userEmail: values.email
                                 });
 

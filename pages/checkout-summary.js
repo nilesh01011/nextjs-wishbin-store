@@ -180,7 +180,7 @@ function CheckoutSummaryPage() {
             if (isPaymentType === 'stripe') {
                 // handleStripePayment()
                 const stripe = await stripePromise;
-                const res = await makePaymentRequest("/api/stripe", {
+                const res = await makePaymentRequest("https://wishbin-store.vercel.app/api/stripe", {
                     products: cartItems
                 });
 
@@ -207,7 +207,7 @@ function CheckoutSummaryPage() {
                     return new Promise(async (resolve, reject) => {
                         try {
                             const response = setTimeout(async () => {
-                                const res = await makePaymentRequest("/api/cod", {
+                                const res = await makePaymentRequest("https://wishbin-store.vercel.app/api/cod", {
                                     address: values, products: cartItems, paymentType: isPaymentType
                                 });
                                 // eslint-disable-next-line no-undef

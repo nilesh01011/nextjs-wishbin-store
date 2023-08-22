@@ -55,7 +55,7 @@ function ContactPage() {
             function contactForms() {
                 return new Promise(async (resolve, reject) => {
                     try {
-                        const response = await axios.post('/api/contact-email', {
+                        const response = await axios.post('https://wishbin-store.vercel.app/api/contact-email', {
                             userData: values
                         });
 
