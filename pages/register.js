@@ -127,7 +127,7 @@ function RegisterPage() {
                                 if (response.status === 200) {
                                     // redirect to home page
                                     // window.location.href = '/login'
-                                    router.push('/login');
+                                    router.push('/');
                                     action.resetForm();
                                 }
 
