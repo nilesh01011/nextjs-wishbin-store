@@ -63,7 +63,7 @@ function forgetPasswordPage() {
                     return new Promise(async (resolve, reject) => {
                         try {
                             const emailSend = setTimeout(async () => {
-                                const response = await axios.post('https://wishbin-store.vercel.app/api/send-forget-email', {
+                                const response = await axios.post('/api/send-forget-email', {
                                     userData: userExists
                                 });
 
