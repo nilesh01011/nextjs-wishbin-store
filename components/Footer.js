@@ -176,6 +176,7 @@ function Footer({ mainFooter }) {
                                     rel="none"
                                     quality={80}
                                     priority={true}
+                                    loading="lazy"
                                     decoding="async"
                                     className={`w-[208px] h-[200px] object-contain ${isLoadFooterImage === true ? 'blur-sm' : ''}`}
                                 />
@@ -192,8 +193,9 @@ function Footer({ mainFooter }) {
                                 height={300}
                                 importance="high"
                                 rel="none"
-                                quality={80}
+                                quality={50}
                                 priority={true}
+                                loading="lazy"
                                 decoding="async"
                                 className={`w-full h-[300px] object-contain blur-sm`}
                                 onLoadingComplete={(image) => { setIsLoadFooterImage(false), image.classList.remove("blur-sm") }}

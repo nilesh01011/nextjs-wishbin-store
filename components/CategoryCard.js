@@ -105,6 +105,7 @@ function CategoryCard({ category }) {
                                         importance="high"
                                         rel="preload"
                                         priority={true}
+                                        loading="lazy"
                                         height={160}
                                         alt={ele._id}
                                         title={ele.title + ' Category'}

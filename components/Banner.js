@@ -100,6 +100,7 @@ function Banner({ bannerData, bannerVideo, bannerBoxImages, bannerBoxTitle, bann
                                                     quality={50}
                                                     priority={true}
                                                     decoding="async"
+                                                    loading="lazy"
                                                     className={`w-auto max-h-[280px] h-full object-contain cursor-pointer ${isLoadImage === true ? 'blur-sm' : ''} `}
                                                     onLoadingComplete={() => setIsLoadImage(false)}
                                                 />
