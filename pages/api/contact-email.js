@@ -18,7 +18,7 @@ export default async function handler(req, res) {
             sender: '"WishBin-store" <no-reply@example.com>'
         });
 
-        const urlLinks = 'http://localhost:3000';
+        const urlLinks = 'https://wishbin-store.vercel.app';
 
         const date = moment().format("MMM Do YY");
 
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
             <center style="display: block; height: 100%; width: 100%;">
                 <!-- logo -->
                 <table>
-                    <a href="http://localhost:3000">
+                    <a href="https://wishbin-store.vercel.app/">
                         <img src="https://i.ibb.co/bgV14jM/Head-Icons.png" alt="Head-Icons"
                             style="width: 80px; height: 80px; object-fit: contain; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);" />
                     </a>

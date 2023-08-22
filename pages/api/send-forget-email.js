@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     // Generate reset token
     const resetToken = generateResetToken(userData.email);
 
-    const urlLinks = 'http://localhost:3000';
+    const urlLinks = 'https://wishbin-store.vercel.app';
 
     // set email options
     const mailOptions = {
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
             >
               <!-- logo -->
               <table>
-                <a href="http://localhost:3000">
+                <a href="https://wishbin-store.vercel.app/">
                   <img
                     src="https://i.ibb.co/cLH47qV/logo.png"
                     alt="Head-Icons"

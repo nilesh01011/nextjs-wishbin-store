@@ -299,7 +299,7 @@ function LoginPage() {
                                                 {/* button popup */}
                                                 {/* gap-[15px] */}
                                                 <div className='lg:w-[310px] w-full flex items-center flex-col justify-center transition-all duration-300'>
-                                                    <button onClick={() => setIsOpenPopup(true)} onMouseOver={() => setAddMailIcon(true)} onMouseLeave={() => setAddMailIcon(false)} type='button' role='button' aria-label='sign-in' className='font-[500] z-50 h-[65px] w-full capitalize p-[0.5rem_1.3rem] text-center bg-black rounded-[10px] border-[2px] border-black text-white hover:opacity-80 transition-all duration-300 flex items-center justify-center gap-[10px] text-[18px]'>
+                                                    <button onClick={() => setIsOpenPopup(true)} onMouseOver={() => setAddMailIcon(true)} onMouseLeave={() => setAddMailIcon(false)} type='button' role='button' aria-label='sign-in' className='font-[500] z-50 h-[60px] w-full capitalize p-[0.5rem_1.3rem] text-center bg-black rounded-[10px] border-[2px] border-black text-white hover:opacity-80 transition-all duration-300 flex items-center justify-center gap-[10px] text-[18px]'>
                                                         {
                                                             addMailIcon === true ? (
                                                                 <MdMail size={24} />
@@ -345,7 +345,7 @@ function LoginPage() {
                                     </div>
                                     {/* bottom button */}
                                     <div className='z-50 w-full flex items-center justify-center mt-[2rem]'>
-                                        <Link href='/' title="Click to visit the WishBin-store website" className='text-[16px] h-[65px] lg:w-[280px] md:w-[500px] w-full font-[500] rounded-[10px] border-2 border-[#343B73] hover:border-black bg-transparent text-[#343B73] hover:text-white hover:bg-black p-[0.6rem_1.3rem] flex items-center justify-center gap-[8px] transition-all duration-300'>
+                                        <Link href='/' title="Click to visit the WishBin-store website" className='text-[16px] h-[60px] lg:w-[280px] md:w-[500px] w-full font-[500] rounded-[10px] border-2 border-[#343B73] hover:border-black bg-transparent text-[#343B73] hover:text-white hover:bg-black p-[0.6rem_1.3rem] flex items-center justify-center gap-[8px] transition-all duration-300'>
                                             <TiArrowBack size={22} />
                                             Go to home page
                                         </Link>
@@ -419,7 +419,7 @@ function LoginPage() {
                                                         role='button'
                                                         aria-label='submit'
                                                         disabled={busy}
-                                                        className={`w-full h-[55px] bg-black text-white ${busy ? 'opacity-75' : 'opacity-100'} rounded-[10px] flex items-center justify-center gap-[10px]`}>
+                                                        className={`w-full h-[60px] font-[500] bg-black text-white ${busy ? 'opacity-75' : 'opacity-100'} rounded-[10px] flex items-center justify-center gap-[10px]`}>
                                                         {busy && <LoadingButton />}
 
                                                         {busy ? 'Submitting' : 'Submit'}
@@ -473,7 +473,7 @@ function LoginPage() {
                                                     </div>
                                                     {/* buttons */}
                                                     <button onClick={() => router.push('/register')} type='button' role='button' aria-label='sign-in' className='w-full
-                                    h-[55px] border-[2px] border-black bg-transparent text-black hover:text-white hover:bg-black transition-all
+                                    h-[60px] border-[2px] border-black bg-transparent text-black hover:text-white hover:bg-black transition-all
                                     duration-300 rounded-[10px] font-semibold'>Sign Up</button>
                                                 </div>
                                             </div>

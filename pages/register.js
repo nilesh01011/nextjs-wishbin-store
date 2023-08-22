@@ -355,7 +355,7 @@ function RegisterPage() {
                                                 {/* button popup */}
                                                 {/* gap-[15px] */}
                                                 <div className='xs:w-[320px] w-full flex items-center flex-col justify-center transition-all duration-300'>
-                                                    <button onClick={() => setIsOpenPopup(true)} type='button' role='button' aria-label='sign-up' onMouseOver={() => setAddMailIcon(true)} onMouseLeave={() => setAddMailIcon(false)} className='text-[16px] z-50 h-[65px] w-full capitalize p-[0.6rem_1.3rem] text-center bg-black text-white hover:opacity-80 rounded-[10px] border-[2px] border-black transition-all duration-300 flex items-center justify-center gap-[10px]'>
+                                                    <button onClick={() => setIsOpenPopup(true)} type='button' role='button' aria-label='sign-up' onMouseOver={() => setAddMailIcon(true)} onMouseLeave={() => setAddMailIcon(false)} className='text-[16px] z-50 h-[60px] w-full capitalize p-[0.6rem_1.3rem] text-center bg-black text-white hover:opacity-80 rounded-[10px] border-[2px] border-black transition-all duration-300 flex items-center justify-center gap-[10px] font-[500]'>
                                                         {
                                                             addMailIcon === true ? (
                                                                 <MdMail size={22} />
@@ -401,7 +401,7 @@ function RegisterPage() {
                                     </div>
                                     {/* bottom button */}
                                     <div className='z-50 w-full flex items-center justify-center mt-[2rem]'>
-                                        <Link href='/' title="Click to visit the WishBin-store website" className='text-[16px] h-[65px] xs:w-[280px] w-full rounded-[10px] border-2 border-black bg-transparent text-black hover:text-white hover:bg-black p-[0.6rem_1.3rem] font-[500] flex items-center justify-center gap-[8px] transition-all duration-300'>
+                                        <Link href='/' title="Click to visit the WishBin-store website" className='text-[16px] font-[500] h-[60px] xs:w-[280px] w-full rounded-[10px] border-2 border-black bg-transparent text-black hover:text-white hover:bg-black p-[0.6rem_1.3rem] flex items-center justify-center gap-[8px] transition-all duration-300'>
                                             <TiArrowBack size={22} />
                                             Go to home page
                                         </Link>
@@ -516,7 +516,7 @@ function RegisterPage() {
                                                     </div>
 
                                                     {/* next side button */}
-                                                    <button onClick={() => setIsCurrentStep(true)} type='button' role='button' aria-label='next-step' className='fields w-full h-[60px] bg-black text-white rounded-[10px]'>Next Step</button>
+                                                    <button onClick={() => setIsCurrentStep(true)} type='button' role='button' aria-label='next-step' className='fields w-full h-[60px] bg-black text-white rounded-[10px] font-semibold'>Next Step</button>
                                                 </div>
 
                                                 {/* Personal Details form */}
@@ -554,7 +554,7 @@ function RegisterPage() {
                                                             role='button'
                                                             aria-label='previous'
                                                             disabled={busy}
-                                                            className={`w-full h-[60px] bg-transparent border-[2px] border-black text-black ${busy ? 'opacity-75' : 'opacity-100'} rounded-[10px]`}>
+                                                            className={`w-full h-[60px] bg-transparent border-[2px] border-black text-black ${busy ? 'opacity-75' : 'opacity-100'} font-semibold rounded-[10px]`}>
                                                             Previous
                                                         </button>
                                                         <button
@@ -562,7 +562,7 @@ function RegisterPage() {
                                                             role='button'
                                                             aria-label='submit'
                                                             disabled={busy}
-                                                            className={`w-full h-[60px] bg-black text-white ${busy ? 'opacity-75' : 'opacity-100'} rounded-[10px] flex items-center justify-center gap-[10px]`}>
+                                                            className={`w-full h-[60px] bg-black text-white ${busy ? 'opacity-75' : 'opacity-100'} rounded-[10px] flex font-semibold items-center justify-center gap-[10px]`}>
                                                             {busy && <LoadingButton />}
 
                                                             Submit
@@ -617,7 +617,7 @@ function RegisterPage() {
                                                     </div>
                                                     {/* buttons */}
                                                     <button onClick={() => router.push('/login')} type='button' role='button' aria-label='sign-in' className='w-full
-                                            h-[55px] border-[2px] border-black bg-transparent text-black hover:text-white hover:bg-black transition-all
+                                            h-[60px] border-[2px] border-black bg-transparent text-black hover:text-white hover:bg-black transition-all
                                             duration-300 rounded-[10px] font-semibold'>Sign In</button>
                                                 </div>
                                             </div>

@@ -19,7 +19,7 @@ export default async function handler(req, res) {
             sender: '"WishBin-store" <no-reply@example.com>'
         });
 
-        const urlLinks = 'http://localhost:3000';
+        const urlLinks = 'https://wishbin-store.vercel.app/';
 
         // set email options
         const mailOptions = {
@@ -78,7 +78,7 @@ export default async function handler(req, res) {
                                 <td>
                                     <a class="uppercase"
                                         style="margin:0 auto; display: flex; width: fit-content; border-radius: 5px; padding: 14px 36px; background: #f16565; color: #fff; font-weight: 500; font-size: 16px; letter-spacing: 0.4px; text-decoration: none; "
-                                        href="http://localhost:3000/userProfile" target="_blank">
+                                        href="https://wishbin-store.vercel.app/userProfile" target="_blank">
                                         Go to your account
                                     </a>
                                 </td>
