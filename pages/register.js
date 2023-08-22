@@ -145,7 +145,7 @@ function RegisterPage() {
                     signUpCredentials(),
                     {
                         loading: 'Redirecting Please wait...',
-                        success: 'Successful registration',
+                        success: 'Successful registration, Please wait to redirect...',
                         error: '!Opps something went wrong to registers.',
                     }
                 );
