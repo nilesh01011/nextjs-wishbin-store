@@ -1,0 +1,22 @@
+{
+  "name": "Wishbin Store for E-commerce Services",
+  "short_name": "Wishbin-store",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e7edef",
+  "theme_color": "#e7edef",
+  "icons": [
+    {
+      "src": "/HeadIcons.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/HeadIcons.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    }
+  ],
+  "splash_pages": null
+}

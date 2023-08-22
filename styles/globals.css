@@ -2,26 +2,605 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* ==================Fonts================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;500;600&family=PT+Sans&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* ================keyframes================== */
+
+@keyframes cards-pulse {
+  0% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 rgba(161, 158, 159, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(224, 201, 207, 0);
+  }
+  100% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  100% {
+    transform: scale(1);
+    transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+}
+
+@keyframes showDelayButton {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+    transition: all 8s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  60% {
+    transform: scale(0.8);
+    opacity: 0.5;
+    transition: all 9s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 10s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+}
+
+@keyframes heartAnim {
+  0% {
+    transform: scale(0.2);
+    transition: all 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  60% {
+    transform: scale(1.2);
+    transition: all 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  100% {
+    transform: scale(1);
+    transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+}
+
+@keyframes bounceInSuccessIcons {
+  0% {
+    transform: scale(0.5);
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+    transform: rotate(-135deg);
+  }
+  60% {
+    transform: scale(1.3);
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+    transform: rotate(-75deg);
+  }
+  80% {
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: scale(1);
+    transform: rotate(0deg);
+    transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+}
+
+@keyframes bounceInSuccessIconsBGEffect {
+  0% {
+    transform: scale(0.5);
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+    width: 68px;
+    height: 68px;
+    opacity: 0.1;
+  }
+  60% {
+    transform: scale(1.3);
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+    width: 88px;
+    height: 88px;
+    opacity: 0.2;
+  }
+  80% {
+    transform: scale(1.6);
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+    width: 108px;
+    height: 108px;
+    opacity: 0.3;
+  }
+  90% {
+    transform: scale(1.9);
+    transition: all 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+  100% {
+    display: none;
+    transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  }
+}
+
+@keyframes onOff {
+  0% {
+    color: #565959;
+  }
+
+  40% {
+    color: #fd5555;
+  }
+
+  80% {
+    color: #565959;
+  }
+
+  100% {
+    color: #fd5555;
+  }
+}
+
+/* ================Custom CSS================= */
+
+* {
+  scroll-behavior: smooth;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #e7edef;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  scrollbar-width: auto;
+  overflow: auto;
+}
+
+body.sidebar-open {
+  overflow: hidden;
+  padding-right: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+}
+
+input,
+small {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+#Container {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+#sidebarText svg {
+  color: #d5dbdb;
+}
+
+#sidebarText:hover svg {
+  color: #000;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+#navbarTabs .swiper-slide {
+  width: auto !important;
+}
+
+#overFlowNone::-webkit-scrollbar {
+  display: none;
+}
+
+#overFlowNone::-webkit-scrollbar {
+  --webkit-scrollbar-width: none;
+  -ms-scrollbar-width: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+#maskImages {
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1.7),
+    rgba(0, 0, 0, 1.6),
+    rgba(0, 0, 0, 1.5),
+    rgba(0, 0, 0, 1.4),
+    rgba(0, 0, 0, 1.3),
+    rgba(0, 0, 0, 1.2),
+    rgba(0, 0, 0, 1.1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+#bannerBoxContents {
+  background: #000;
+  mask-image: linear-gradient(
+    to top,
+    rgb(0, 0, 0),
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0)
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgb(0, 0, 0),
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+#productCards::after {
+  clip-path: circle(7.4% at 100% 100%);
+}
+
+#productCards:hover::after {
+  opacity: 1;
+  transition: all 1000ms linear;
+  clip-path: circle(200% at 100% 100%);
+}
+
+#productCards.toys:hover::after {
+  background: url('../public/card-bg-image/toysbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.electronics:hover::after {
+  background: url('../public/card-bg-image/electronicsbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.mobile:hover::after {
+  background: url('../public/card-bg-image/mobilesbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.computer:hover::after {
+  background: url('../public/card-bg-image/computerbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.cloths:hover::after {
+  background: url('../public/card-bg-image/clothsbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.furniture:hover::after {
+  background: url('../public/card-bg-image/furniturebg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.babyCloths:hover::after {
+  background: url('../public/card-bg-image/babytoysbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.groceries:hover::after {
+  background: url('../public/card-bg-image/groceriesbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.games:hover::after {
+  background: url('../public/card-bg-image/gamebg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.watch:hover::after {
+  background: url('../public/card-bg-image/watchbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.shoes:hover::after {
+  background: url('../public/card-bg-image/shoesbg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards.movie:hover::after {
+  background: url('../public/card-bg-image/moviebg.webp') no-repeat;
+  background-size: contain;
+}
+
+#productCards::before {
+  border-radius: 20px;
+  z-index: 1;
+  clip-path: circle(7.4% at 100% 100%);
+  -webkit-clip-path: circle(7.4% at 100% 100%);
+  transition: 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#productCards:hover::before {
+  clip-path: circle(103% at 100% 100%);
+  -webkit-clip-path: circle(103% at 100% 100%);
+}
+
+#form_acc .fields,
+#form_per .fields {
+  width: 352px;
+}
+
+#registerBG {
+  position: relative;
+  overflow: hidden;
+}
+
+#loginBGChanges {
+  position: relative;
+  overflow: hidden;
+}
+
+/* popupContent */
+
+#popup {
+  width: 100%;
+  height: 100vh;
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+#popup .popupContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#popup .popupContent .popupBox {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.5);
+  transform: scale(0.5);
+  transition: all 0.4s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+#atc_btn_icons.active,
+#popup .popupContent .popupBox.activePopup {
+  transform: scale(1);
+  animation: bounceIn 0.4s linear forwards alternate;
+}
+
+/* ATC */
+
+#atc_btn_icons {
+  transform: scale(0.5);
+  transition: all 0.4s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}
+
+/* sidebar */
+
+#showDelayButton {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}
+
+#showDelayButton.showDelayButton {
+  transition: all 0.5s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  animation: showDelayButton 1.2s linear forwards alternate !important;
+}
+
+/* wishlist button */
+
+#heart {
+  transition: all 0.5s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}
+
+#heart.liked {
+  transition: all 0.7s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  animation: heartAnim 0.4s linear forwards alternate !important;
+}
+
+/* success order page */
+
+#successIcons {
+  transform: scale(0.5);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-135deg);
+}
+
+#successIcons.active {
+  transform: scale(1);
+  opacity: 1;
+  transform: rotate(0);
+  animation: bounceInSuccessIcons 0.4s linear forwards alternate;
+}
+
+#successIcons .hide {
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}
+
+#successIcons.active .hide {
+  opacity: 0;
+}
+
+/* overflowScroll */
+
+#overflowScroll::-webkit-scrollbar {
+  display: none;
+}
+
+#overflowScroll::-webkit-scrollbar {
+  --webkit-scrollbar-width: none;
+  -ms-scrollbar-width: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+/* orders page */
+
+#trackBtn span {
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+  animation: onOff 2s ease infinite;
+}
+
+/* ==================Media Queries=================== */
+
+@media screen and (max-width: 1025px) {
+  /* login */
+  #loginBGChanges::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('/loginCircleSVG.svg') no-repeat;
+    background-size: cover;
+  }
+  /* register */
+  #registerBG::after {
+    content: '';
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('/registerCircleSVG.svg') no-repeat;
+    background-size: cover;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  /* productCards */
+  #productCards::after {
+    opacity: 1;
+    transition: all 1000ms linear;
+    clip-path: circle(200% at 100% 100%);
+  }
+
+  #productCards::before {
+    clip-path: circle(103% at 100% 100%);
+    -webkit-clip-path: circle(103% at 100% 100%);
+  }
+
+  #productCards.toys::after {
+    background: url('../public/card-bg-image/toysbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.electronics::after {
+    background: url('../public/card-bg-image/electronicsbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.mobile::after {
+    background: url('../public/card-bg-image/mobilesbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.computer::after {
+    background: url('../public/card-bg-image/computerbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.cloths::after {
+    background: url('../public/card-bg-image/clothsbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.furniture::after {
+    background: url('../public/card-bg-image/furniturebg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.babyCloths::after {
+    background: url('../public/card-bg-image/babytoysbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.groceries::after {
+    background: url('../public/card-bg-image/groceriesbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.games::after {
+    background: url('../public/card-bg-image/gamebg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.watch::after {
+    background: url('../public/card-bg-image/watchbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.shoes::after {
+    background: url('../public/card-bg-image/shoesbg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards.movie::after {
+    background: url('../public/card-bg-image/moviebg.webp') no-repeat;
+    background-size: contain;
+  }
+
+  #productCards .card_btn {
+    animation: cards-pulse 2s ease infinite;
+  }
+
+  #productCards button.dark_theme {
+    background: #101219;
+  }
+
+  #productCards button.light_theme {
+    background: #e7edef;
+  }
+
+  #productCards .productImage {
+    margin-top: -65px;
+    margin-bottom: 65px;
+  }
+
+  #productCards .productImage img {
+    transform: scale(1.1);
+  }
+
+  #productCards .add-to-wishlist {
+    box-shadow: 0 0 1px #000;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* login and register */
+  #registerBG::after,
+  #loginBGChanges::after {
+    width: 100vw;
+  }
+
+  #form_acc .fields,
+  #form_per .fields {
+    width: calc(100% + 100%);
+  }
 }
