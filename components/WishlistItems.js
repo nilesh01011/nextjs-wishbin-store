@@ -192,7 +192,7 @@ function WishlistItems({ product }) {
                 </button>
                 {/* product image */}
                 <div
-                    className='sm:w-[80%] mx-auto w-full h-[53%] max-h-[53%] p-[1rem_0.5rem] rounded-[10px_10px_0_0]'>
+                    className='sm:w-[80%] mx-auto w-full h-[53%] max-h-[53%] p-[1rem_0.5rem] rounded-[10px_10px_0_0] bg-[#E7EDEF] dark:bg-[#373B4D]'>
                     {
                         getProduct.image &&
                         <Image
