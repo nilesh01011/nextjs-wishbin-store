@@ -103,8 +103,7 @@ function CategoryCard({ category }) {
                                         src={ele.image}
                                         width={210}
                                         importance="high"
-                                        rel="preload"
-                                        priority={true}
+                                        rel="none"
                                         loading="lazy"
                                         height={160}
                                         alt={ele._id}

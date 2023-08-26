@@ -117,7 +117,7 @@ function ContactPage() {
                                     <div className='md:w-1/2 w-full h-full'>
                                         <h1 className='sm:text-[2.3rem] text-[1.8rem] sm:leading-[50px] leading-8 mb-[1rem] font-black text-black dark:text-[#BABECD]'>Let's talk about everything!</h1>
                                         {/* images */}
-                                        <Image src='/contact-form.svg' importance="high" rel="preload" priority={true} height={330} width={445} className='w-full h-[330px] object-contain slg:block hidden' alt='Contact-form-image' title={`Contact banner image`} />
+                                        <Image src='/contact-form.svg' importance="high" rel="preload" loading="lazy" height={330} width={445} className='w-full h-[330px] object-contain slg:block hidden' alt='Contact-form-image' title={`Contact banner image`} />
                                     </div>
                                     {/* right side */}
                                     <div className='md:w-1/2 w-full h-full'>

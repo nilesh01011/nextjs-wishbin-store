@@ -106,8 +106,8 @@ function Footer({ mainFooter }) {
                                 <h2 className='xs:text-[1.5rem] text-[1.3rem] font-bold text-black dark:text-[#BABECD]'>Join us today!</h2>
                             </div>
                             {/* contact buttons */}
-                            <button onClick={() => router.push('/contact')} type='button' aria-label="get-started" role='button' className='contact-btn w-max h-[50px] rounded-[5px] p-[0.5rem_1.4rem] bg-[#101219] hover:opacity-[0.85] text-white dark:text-[#BABECD] dark:hover:text-[#BABECD] flex items-center justify-center gap-[0.7rem] text-[1.2rem] shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:shadow-none'>
-                                <FaTelegramPlane size={20} />
+                            <button onClick={() => router.push('/contact')} type='button' aria-label="get-started" role='button' className='contact-btn w-max h-[50px] rounded-[5px] p-[0.5rem_1.4rem] bg-[#101219] hover:opacity-[0.85] text-white dark:text-[#BABECD] dark:hover:text-[#BABECD] flex items-center justify-center gap-[0.7rem] text-[1rem] shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:shadow-none'>
+                                <FaTelegramPlane size={18} />
                                 Get started
                             </button>
                         </div>
@@ -175,7 +175,6 @@ function Footer({ mainFooter }) {
                                     importance="high"
                                     rel="none"
                                     quality={80}
-                                    priority={true}
                                     loading="lazy"
                                     decoding="async"
                                     className={`w-[208px] h-[200px] object-contain ${isLoadFooterImage === true ? 'blur-sm' : ''}`}
@@ -194,7 +193,6 @@ function Footer({ mainFooter }) {
                                 importance="high"
                                 rel="none"
                                 quality={50}
-                                priority={true}
                                 loading="lazy"
                                 decoding="async"
                                 className={`w-full h-[300px] object-contain blur-sm`}

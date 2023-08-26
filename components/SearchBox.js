@@ -129,10 +129,10 @@ function SearchBox() {
                                                 height={45}
                                                 width={40}
                                                 className='w-[40px] h-[45px] object-contain z-[10] relative'
-                                                priority={true}
+                                                loading="lazy"
                                                 quality={80}
                                                 importance="high"
-                                                rel="preload"
+                                                rel="none"
                                             />
                                         </div>
                                         {/* images and name */}

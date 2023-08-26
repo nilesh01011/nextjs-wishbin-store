@@ -98,7 +98,6 @@ function Banner({ bannerData, bannerVideo, bannerBoxImages, bannerBoxTitle, bann
                                                     importance="high"
                                                     rel="none"
                                                     quality={50}
-                                                    priority={true}
                                                     decoding="async"
                                                     loading="lazy"
                                                     className={`w-auto max-h-[280px] h-full object-contain cursor-pointer ${isLoadImage === true ? 'blur-sm' : ''} `}
@@ -115,7 +114,7 @@ function Banner({ bannerData, bannerVideo, bannerBoxImages, bannerBoxTitle, bann
                                         importance="high"
                                         rel="preload"
                                         decoding="async"
-                                        priority={true}
+                                        loading="lazy"
                                         alt={ele._id}
                                         title={`${ele.links} banner background image`}
                                         className='w-auto h-auto max-h-[300px] mx-auto md:hidden block object-contain cursor-pointer' /> */}
@@ -172,7 +171,7 @@ function Banner({ bannerData, bannerVideo, bannerBoxImages, bannerBoxTitle, bann
                             importance="high"
                             title={`${bannerBoxText} background image`}
                             rel="preload"
-                            priority={true}
+                            loading="lazy"
                             height={240}
                             quality={50}
                             alt='banner-images'

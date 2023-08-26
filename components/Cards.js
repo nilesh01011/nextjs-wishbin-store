@@ -339,7 +339,6 @@ function Cards({ cardsList }) {
                                         quality={50}
                                         importance="high"
                                         rel="none"
-                                        priority={true}
                                         className={`w-full h-full max-h-40 object-contain z-[10] relative ${isLoadImage === true ? 'blur-sm' : ''}`}
                                         title={name}
                                         onLoadingComplete={() => setIsLoadImage(false)}

@@ -163,10 +163,10 @@ function ProductDetails({ product }) {
                                     product.image.asset._ref &&
                                     <Image
                                         src={urlFor(product.image.asset._ref).url()}
-                                        priority={true}
+                                        loading="lazy"
                                         quality={80}
                                         importance="high"
-                                        rel="preload"
+                                        rel="none"
                                         height={300}
                                         width={316}
                                         title={product.name}

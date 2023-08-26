@@ -75,8 +75,8 @@ function BestSellerPage({ category }) {
                                                         src={image}
                                                         width={200}
                                                         importance="high"
-                                                        rel="preload"
-                                                        priority={true}
+                                                        rel="none"
+                                                        loading="lazy"
                                                         height={160}
                                                         alt={ele._id}
                                                         title={ele.title + ' Category'}

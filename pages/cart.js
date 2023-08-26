@@ -142,7 +142,8 @@ function CartPage() {
                 <Link
                     href="/cart"
                     title="Click to visit the Cart page"
-                    className="bg-gray-800 opacity-75 text-white px-4 py-2 rounded-md flex items-center gap-2 cursor-not-allowed"
+                    disabled
+                    className={`w-full text-[16px] cursor-not-allowed shadow-[0_2px_4px_rgba(0,0,0,0.3)] h-[50px] bg-[#101219] opacity-80 text-white dark:text-[#BABECD] flex items-center justify-center gap-[7px] p-[0.5rem_1rem] rounded-[6px]`}
                 >
                     {/* <BsCartXFill size={18} /> */}
                     Add some items
@@ -155,8 +156,8 @@ function CartPage() {
                 <Link
                     href="/checkout-summary"
                     title="Click to visit the Checkout page"
-                    onClick={handleProceedItems}
-                    className={`w-full text-[16px] cursor-not-allowed shadow-[0_2px_4px_rgba(0,0,0,0.3)] h-[50px] bg-[#101219] opacity-75 text-white dark:text-[#BABECD] flex items-center justify-center gap-[7px] p-[0.5rem_1rem] rounded-[6px]`}
+                    onClick={() => handleProceedItems()}
+                    className={`w-full text-[16px] shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:shadow-none h-[50px] bg-[#101219] hover:opacity-80 text-white dark:text-[#BABECD] flex items-center justify-center gap-[7px] p-[0.5rem_1rem] rounded-[6px]`}
                 >
                     Proceed to checkout
                 </Link>
@@ -168,7 +169,7 @@ function CartPage() {
                 href="/cart"
                 title="Click to visit the Cart page"
                 disabled
-                className={`w-full text-[16px] cursor-not-allowed shadow-[0_2px_4px_rgba(0,0,0,0.3)] h-[50px] bg-[#101219] opacity-75 text-white dark:text-[#BABECD] flex items-center justify-center gap-[7px] p-[0.5rem_1rem] rounded-[6px]`}
+                className={`w-full text-[16px] cursor-not-allowed shadow-[0_2px_4px_rgba(0,0,0,0.3)] h-[50px] bg-[#101219] opacity-80 text-white dark:text-[#BABECD] flex items-center justify-center gap-[7px] p-[0.5rem_1rem] rounded-[6px]`}
             >
                 {/* <BsCartXFill size={18} /> */}
                 Add some items
