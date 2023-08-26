@@ -173,8 +173,11 @@ function CartItems({ product }) {
                     <Image
                         onClick={() => router.push(`/product-details/${product._id}`)}
                         src={product.image}
-                        width={100} height={120} alt='product-image'
+                        width={100}
+                        height={120}
+                        alt='product-image'
                         loading="lazy"
+                        rel="none"
                         decoding="async"
                         title={product.name}
                         className='cursor-pointer w-full h-[120px] object-contain p-[1rem]' />

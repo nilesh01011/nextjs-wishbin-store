@@ -28,43 +28,12 @@ function Banner({ bannerData, bannerVideo, bannerBoxImages, bannerBoxTitle, bann
 
     const swiperRef = useRef();
 
-    // const [loading, setLoading] = useState(false);
-
-    // Router.events.on("routeChangeStart", () => {
-    //     console.log("Route is staring...")
-    //     setLoading(true)
-    // })
-
-    // Router.events.on("routeChangeComplete", () => {
-    //     console.log("Route is completed...")
-    //     setLoading(false)
-    // })
-
     const [isLoadImage, setIsLoadImage] = useState(true);
     const [isLoadBox, setIsLoadBox] = useState(true);
 
     return (
         <>
             <div className='w-full h-max flex gap-[20px] xl:px-[3rem] items-center xs:px-[1.5rem] px-[1rem]'>
-                {/* xl:h-[262px] */}
-                {/* items-center */}
-
-                {/* {
-                    loading === true ? (
-                        <div className='w-full h-full flex gap-[20px]'>
-                            <div className="xl:w-[72.50%] lg:w-[68%] w-full animate-pulse flex space-x-4 slg:h-[250px] md:h-[220px] xs:h-[180px] mobile:h-[150px] h-[130px]">
-                                <div className="bg-slate-400 h-full w-full"></div>
-                            </div>
-                            <div className="xl:w-[26%] lg:w-[30%] w-full animate-pulse lg:flex hidden space-x-4 lg:h-[250px] slg:h-[260px] sm:h-[220px] h-[150px]">
-                                <div className="bg-slate-400 h-full w-full"></div>
-                            </div>
-                        </div>
-                    ) : (
-                        <>
-                      
-                        </>
-                    )
-                } */}
 
                 {/* left side banner */}
                 <div className='xl:w-[72.50%] lg:w-[68%] w-full h-full rounded-[60px]'>
@@ -144,8 +113,6 @@ function Banner({ bannerData, bannerVideo, bannerBoxImages, bannerBoxTitle, bann
                 <div className='xl:w-[30%] lg:w-[36%] w-full h-full lg:block hidden'>
                     <div className={`w-full 1x1:h-[265px] xl:h-[250px] h-[190px] group relative`}>
                         {/* Video */}
-                        {/* border-[1px] border-[#B5B5B6] */}
-                        {/* xl:h-[200px] h-[180px] */}
                         <video
                             preload="none"
                             muted={true}
