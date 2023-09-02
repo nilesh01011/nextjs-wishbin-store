@@ -12,6 +12,7 @@ import { SessionProvider } from 'next-auth/react'
 import { StrictMode, Suspense, useEffect } from "react";
 import { useRouter } from 'next/router'
 import Loading from '../components/Loading'
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
   const queryClient = new QueryClient();
@@ -69,7 +70,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
     }
   }, []);
 
-  return <>
+  return (
     <ThemeProvider enableSystem={false} attribute='class'>
       {/* redux */}
       <Provider store={store}>
@@ -82,6 +83,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
             <StrictMode>
               <Suspense fallback={<Loading />}>
                 <Component {...pageProps} onRouteChange={handleRouteChange} />
+                <Analytics />
               </Suspense>
             </StrictMode>
             {/* </SessionProvider> */}
@@ -89,5 +91,5 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
         </PersistGate>
       </Provider>
     </ThemeProvider>
-  </>
+  )
 }

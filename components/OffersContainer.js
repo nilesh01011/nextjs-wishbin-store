@@ -55,7 +55,7 @@ function OffersContainer() {
     })
 
     return (
-        <div className='fixed w-auto right-0 bottom-[35%] h-[288px] bg-[rgba(0,0,0,0.6)] z-[100] text-white sm:flex hidden'>
+        <div className='fixed w-auto right-0 xl:bottom-[25%] bottom-[35%] h-[288px] bg-[rgba(0,0,0,0.6)] z-[100] text-white sm:flex hidden'>
             <div ref={domNode} onClick={() => setIsActiveOffer(!isActiveOffer)} className='cursor-pointer p-[1.2rem_0.8rem] h-full w-[50px] flex items-center justify-between flex-col'>
                 {/* icons */}
                 <span className={`w-0 h-0 ${isActiveOffer === true ? 'border-r-0 border-l-[16px] border-l-white' : 'border-r-[16px] border-r-white border-l-0'} border-t-[13px] border-t-[transparent] border-b-[13px] border-b-[transparent]`}></span>
