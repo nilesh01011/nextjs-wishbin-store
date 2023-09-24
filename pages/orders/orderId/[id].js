@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 'use client'
 
+import PropTypes from 'prop-types';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
 import Loading from '../../../components/Loading';
@@ -23,49 +25,34 @@ const fetchData = async (id) => {
         const orderId = id ? id : null;
         const query = `*[_type == 'order' && orderId == $orderId][0]`;
         const getOrdersStatus = await client.fetch(query, { orderId });
-        // user data fetch
-        const userId = getOrdersStatus ? getOrdersStatus.user._ref : null;
-        const userQuery = `*[_type == 'user' && _id == $userId][0]`;
-        const userData = await client.fetch(userQuery, { userId });
-        // product data fetch
-        const productId = getOrdersStatus ? getOrdersStatus.product._ref : null;
-        const productQuery = `*[_type == 'product' && _id == $productId]{
-            _id,
-            name,
-            price,
-            "image":image.asset->url
-        }[0]`;
-        const productData = await client.fetch(productQuery, { productId });
+        // // user data fetch
+        // const userId = getOrdersStatus ? getOrdersStatus.user._ref : null;
+        // const userQuery = `*[_type == 'user' && _id == $userId][0]`;
+        // const userData = await client.fetch(userQuery, { userId });
+        // // product data fetch
+        // const productId = getOrdersStatus ? getOrdersStatus.product._ref : null;
+        // const productQuery = `*[_type == 'product' && _id == $productId]{
+        //     _id,
+        //     name,
+        //     price,
+        //     "image":image.asset->url
+        // }[0]`;
+        // const productData = await client.fetch(productQuery, { productId });
 
-        return { order: getOrdersStatus, user: userData, product: productData };
+        return {
+            order: getOrdersStatus,
+            // user: userData, product: productData
+        };
 
     } catch (error) {
         console.log('error for fetching order status', error);
     }
 }
 
-function Index() {
+function OrderIdPage({ order, product }) {
+
     const router = useRouter();
     const { id } = router.query;
-
-    // user exists
-    // const User = Cookies.get('userInfo');
-    // const [getUser, setUser] = useState([])
-
-    // useEffect(() => {
-    //     if (!User) {
-    //         window.location.href = '/login'
-    //         return router.push('/cart');
-    //     }
-    //     if (User) {
-    //         setUser(JSON.parse(User));
-    //     }
-    // }, [User])
-    // const { data: session } = useSession();
-
-    // useEffect(() => {
-    //     if (!session) return router.push('/login')
-    // }, [session])
 
     const { theme } = useTheme();
 
@@ -120,6 +107,8 @@ function Index() {
         enabled: id !== undefined
     });
 
+    console.log(data)
+
 
     if (isError) {
         console.error('Errors in UseSwr orderId pages:', isError);
@@ -137,7 +126,7 @@ function Index() {
         refetch();
     }
 
-    const isActive = Number(data.order.status.split(',')[1]);
+    const isActive = Number(order.status.split(',')[1]);
 
     return (
         <>
@@ -233,7 +222,7 @@ function Index() {
                                                                 {
                                                                     index < isActive &&
                                                                     <span className='xs:pl-0 pl-[70px] xs:pt-0 pt-[5px] md:text-[14px] xs:text-[12px] text-[10px] font-[500] text-[#96a0a5] flex items-center'>
-                                                                        {moment(data.order._updatedAt).format("llll")}
+                                                                        {moment(order._updatedAt).format("llll")}
                                                                     </span>
                                                                 }
                                                             </li>
@@ -269,7 +258,7 @@ function Index() {
                                             {/* order date */}
                                             <p className='md:w-max w-full flex-wrap flex md:flex-col flex-row md:justify-normal justify-between text-[12px] font-bold gap-[3px]'>
                                                 <span className='text-[#96a0a5]'>Order Date :</span>
-                                                <span className='text-black dark:text-[#BABECD]'>{moment(data.order._createdAt).format("ll")}</span>
+                                                <span className='text-black dark:text-[#BABECD]'>{moment(order._createdAt).format("ll")}</span>
                                             </p>
                                             {/* order date */}
                                             <p className='md:w-max w-full flex-wrap flex md:flex-col flex-row md:justify-normal justify-between text-[12px] font-bold gap-[3px]'>
@@ -285,7 +274,7 @@ function Index() {
                                             <p className='md:w-max w-full flex-wrap flex md:flex-col flex-row md:justify-normal justify-between text-[12px] font-bold gap-[3px]'>
                                                 <span className='text-[#96a0a5]'>Shipping Address :</span>
                                                 <span className='text-black dark:text-[#BABECD]'>
-                                                    {data.order.address.length >= 30 ? `${data.order.address.slice(0, 30)}...` : data.order.address}
+                                                    {order.address.length >= 30 ? `${order.address.slice(0, 30)}...` : order.address}
                                                 </span>
                                             </p>
                                         </div>
@@ -296,7 +285,7 @@ function Index() {
                                             {/* images */}
                                             <div className='h-[60px] w-max'>
                                                 <Image
-                                                    src={data.product.image}
+                                                    src={product.image}
                                                     alt='logo'
                                                     width={100}
                                                     height={60}
@@ -311,12 +300,12 @@ function Index() {
                                             <div className='w-full flex xs:items-center xs:flex-row flex-col justify-between gap-[8px]'>
                                                 <div className='flex flex-col gap-[4px]'>
                                                     {/* product title */}
-                                                    <h5 className='text-[1rem] font-bold text-black dark:text-[#BABECD]'>{data.product.name}</h5>
+                                                    <h5 className='text-[1rem] font-bold text-black dark:text-[#BABECD]'>{product.name}</h5>
                                                     {/* qty */}
-                                                    <p className='text-[#96a0a5] text-[0.8rem]'>Quantity: x{data.order.quantity}</p>
+                                                    <p className='text-[#96a0a5] text-[0.8rem]'>Quantity: x{order.quantity}</p>
                                                 </div>
                                                 {/* price */}
-                                                <h6 className='text-[0.9rem] font-bold text-black dark:text-[#BABECD]'>₹{new Intl.NumberFormat().format(data.product.price)}</h6>
+                                                <h6 className='text-[0.9rem] font-bold text-black dark:text-[#BABECD]'>₹{new Intl.NumberFormat().format(product.price)}</h6>
                                             </div>
                                         </div>
                                         {/* line */}
@@ -328,13 +317,13 @@ function Index() {
                                                 <div className='w-full flex items-center justify-between'>
                                                     <span className='font-bold text-[#96a0a5]'>Payment Mode :</span>
                                                     {/* types */}
-                                                    <span className={`font-bold text-black dark:text-[#BABECD] ${data.order.paymentType === 'cod' ? 'uppercase' : 'capitalize'} `}>{data.order.paymentType}</span>
+                                                    <span className={`font-bold text-black dark:text-[#BABECD] ${order.paymentType === 'cod' ? 'uppercase' : 'capitalize'} `}>{order.paymentType}</span>
                                                 </div>
                                                 {/* payment mode */}
                                                 <div className='w-full flex items-center justify-between'>
                                                     <span className='font-bold text-[#96a0a5]'>Subtotal  :</span>
                                                     {/* types */}
-                                                    <span className='font-bold text-black dark:text-[#BABECD]'>₹{new Intl.NumberFormat().format(data.order.subTotal)}</span>
+                                                    <span className='font-bold text-black dark:text-[#BABECD]'>₹{new Intl.NumberFormat().format(order.subTotal)}</span>
                                                 </div>
                                                 {/* payment mode */}
                                                 <div className='w-full flex items-center justify-between'>
@@ -347,7 +336,7 @@ function Index() {
                                             <div className='w-full h-[1px] bg-[#d5dbdb] dark:bg-[#96a0a5cc]/40 my-[1rem]'></div>
                                             <div className='w-full flex items-center justify-between text-[0.8rem]'>
                                                 <span className='text-black font-bold dark:text-[#BABECD]'>Total :</span>
-                                                <span className='text-black font-bold dark:text-[#BABECD]'>₹{new Intl.NumberFormat().format(data.order.subTotal)}</span>
+                                                <span className='text-black font-bold dark:text-[#BABECD]'>₹{new Intl.NumberFormat().format(order.subTotal)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -365,4 +354,33 @@ function Index() {
     )
 }
 
-export default Index
+export default OrderIdPage;
+
+OrderIdPage.prototype = {
+    order: PropTypes.object.isRequired,
+    product: PropTypes.object.isRequired,
+}
+
+export async function getServerSideProps({ params }) {
+    const { id } = params;
+
+    // order fetch by Id 
+    const orderId = id ? id : null;
+    const query = `*[_type == 'order' && orderId == $orderId][0]`;
+    const getOrdersStatus = await client.fetch(query, { orderId });
+    // product data fetch
+    const productId = getOrdersStatus ? getOrdersStatus.product._ref : null;
+    const productQuery = `*[_type == 'product' && _id == $productId]{
+              _id,
+              name,
+              price,
+              "image":image.asset->url
+          }[0]`;
+    const productData = await client.fetch(productQuery, { productId });
+
+    return {
+        props: {
+            order: getOrdersStatus, product: productData
+        }
+    }
+}
