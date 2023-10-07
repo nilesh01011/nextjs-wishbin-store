@@ -10,7 +10,6 @@ import Rating from './Rating';
 import { MdFacebook, MdMail } from 'react-icons/md';
 import { FaInstagram, FaTwitterSquare } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
-import imageUrlBuilder from '@sanity/image-url';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../slices/cartSlice';
 import { TiArrowBack } from 'react-icons/ti';
@@ -18,12 +17,7 @@ import { FiCheckCircle } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 // import { useSession } from 'next-auth/react';
 import { getDiscountedPricePercentage } from '../utils/getDiscountPrice';
-
-const builder = imageUrlBuilder({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECTID,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-})
-const urlFor = (source) => builder.image(source);
+import { urlFor } from '../sanity';
 
 function ProductDetails({ product }) {
     const router = useRouter()

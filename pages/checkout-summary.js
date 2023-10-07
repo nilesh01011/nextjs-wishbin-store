@@ -156,14 +156,6 @@ function CheckoutSummaryPage() {
         }
     }, [])
 
-    // useEffect(() => {
-    //     if (!User) {
-    //         window.location.href = '/cart'
-    //         return router.push('/cart')
-    //     }
-    // }, [User])
-
-
     // payment type active
     const [isPaymentType, setIsPaymentType] = useState('cod');
 

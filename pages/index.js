@@ -2,13 +2,16 @@
 /* eslint-disable react/react-in-jsx-scope */
 "use client"
 
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Header from '../components/Header'
 import ThemeChanged from '../components/ThemeChanged'
+import Header from '../components/Header'
 import Banner from '../components/Banner'
 import CategoryCard from '../components/CategoryCard'
-import BannerSticker from '../components/BannerSticker'
 import Cards from '../components/Cards'
+const LoadMoreProducts = dynamic(() => import('../components/LoadMoreProducts'));
+// import LoadMoreProducts from '../components/LoadMoreProducts'
+import BannerSticker from '../components/BannerSticker'
 import CommonHead from '../components/CommonHead'
 import OffersContainer from '../components/OffersContainer'
 import Footer from '../components/Footer'
@@ -16,7 +19,6 @@ import { useEffect, useState } from 'react'
 import { Router } from 'next/router'
 import Loading from '../components/Loading'
 import { client } from '../sanity'
-import LoadMoreProducts from '../components/LoadMoreProducts'
 
 export default function HomePage({ newBanner, category, firstNewProduct, allProduct }) {
 

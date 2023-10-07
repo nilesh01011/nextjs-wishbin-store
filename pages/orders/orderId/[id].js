@@ -69,7 +69,7 @@ function OrderIdPage({ order, product }) {
     })
 
     const [rotation, setRotation] = useState(0);
-
+// tracksStatus list name
     const tracksStatus = [
         {
             id: 1,
@@ -107,7 +107,7 @@ function OrderIdPage({ order, product }) {
         enabled: id !== undefined
     });
 
-    console.log(data)
+    // console.log(data ? data.order : null)
 
 
     if (isError) {
@@ -126,7 +126,9 @@ function OrderIdPage({ order, product }) {
         refetch();
     }
 
-    const isActive = Number(order.status.split(',')[1]);
+    // Dynamic status loads
+    const isActive = Number(data.order.status.split(',')[1]);
+    // const isActive = Number(order.status.split(',')[1]);
 
     return (
         <>
@@ -142,8 +144,8 @@ function OrderIdPage({ order, product }) {
 
                             <main className="max-w-[1366px] mx-auto w-full h-full xl:px-[3rem] md:px-[1.5rem] px-[1rem] xl:mb-[6.7rem] md:mb-[6.4rem] xs:mb-[6rem] mb-[7.2rem] mt-[20px]">
                                 <div className='w-full h-full mb-[20px] flex xs:flex-row flex-col sm:items-center xs:gap-0 gap-[10px] justify-between'>
-                                    <div className='flex sm:items-center sm:flex-row flex-col sm:gap-[20px] gap-[10px]'>
-                                        <button type='button' onClick={() => router.push('/orders')} role='button' aria-label='go-back' className='w-max p-[0.6rem_1.5rem] hover:opacity-75 bg-white dark:bg-[#262936] rounded-[10px] text-black dark:text-[#BABECD] flex items-center gap-[6px]'>
+                                    <div className='flex sm:items-center sm:flex-row flex-col sm:gap-[20px] xs:gap-[10px] gap-[1.2rem]'>
+                                        <button type='button' onClick={() => router.push('/orders')} role='button' aria-label='go-back' className='w-max p-[0.6rem_1.5rem] hover:opacity-75 bg-white dark:bg-[#262936] rounded-[10px] text-black dark:text-[#BABECD] flex items-center gap-[6px] font-[500]'>
                                             <TiArrowBack size={18} />
                                             Go back
                                         </button>

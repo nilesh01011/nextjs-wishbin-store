@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
 import { addToWishlistItems } from '../slices/wishlistSlice';
 import { v4 as uuidv4 } from 'uuid';
-import { client } from '../sanity';
+import { client, urlFor } from '../sanity';
 // import { useSession } from 'next-auth/react';
 
 // get unique identifier length of 6 for order ID
@@ -92,11 +92,6 @@ function CartItems({ product }) {
             });
         }
 
-        // const email = session ? session?.user?.email : null;
-        // const email = setUser?.email;
-        // const userEmailQuery = `*[_type == 'user' && email == $email][0]`;
-        // const fetchUserData = await client.fetch(userEmailQuery, { email });
-        // const userId = fetchUserData ? fetchUserData._id : null;
         const userId = setUser ? setUser._id : null
 
         const fetchWishlist = await client.fetch(`*[
@@ -172,7 +167,7 @@ function CartItems({ product }) {
                 <div className='lg:w-[20%] w-full bg-[#E7EDEF] dark:bg-[#101219]/30 rounded-[5px]'>
                     <Image
                         onClick={() => router.push(`/product-details/${product._id}`)}
-                        src={product.image}
+                        src={product.image.asset ? urlFor(product.image.asset._ref).url() : product.image}
                         width={100}
                         height={120}
                         alt='product-image'
